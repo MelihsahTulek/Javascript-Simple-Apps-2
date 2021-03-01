@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+html,
+body {
+  font-family: "Roboto Condensed";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  height: 65px;
+  background-color: #2a2a2a;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  padding: 0 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logoContainer h1 {
+  color: #eee;
+  font-size: 1.7rem;
+}
+
+.logoContainer span {
+  display: none;
+}
+
+.menuItems {
+  flex: 1;
+  min-height: 100%;
+  padding: 0 5rem;
+}
+
+.menuItems ul {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menuItems ul li {
+  margin: 0 3px;
+  background-color: #333;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.menuItems ul li a {
+  text-decoration: none;
+  color: #eee;
+  text-align: center;
+  width: 100%;
+  font-size: 17px;
+}
+
+.menuItems ul li a i {
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 10px;
+  }
+  nav {
+    flex-direction: column;
+    height: auto;
+  }
+  .logoContainer {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logoContainer span {
+    display: inline-block;
+    color: #eee;
+  }
+  .menuItems {
+    display: none;
+  }
+  .menuItems ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menuItems ul li {
+    width: 100%;
+    margin: 3px 0;
+    height: 40px;
+  }
+  .menuItems ul li a {
+    text-align: left;
+  }
+}

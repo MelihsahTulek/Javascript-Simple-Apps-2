@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app_1</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+      html,
+      body {
+        font-family: "Anton", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .clockContainer {
+        border: 3px solid #333;
+        width: 50vmax;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .clockContainer span {
+        font-size: 10vmax;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="clockContainer">
+        <span id="clock"></span>
+      </div>
+    </section>
+    <script>
+      const clockElem = document.querySelector("#clock");
+
+      setInterval(() => {
+        clockElem.innerHTML = `
+          ${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}
+        `;
+      }, 1000);
+    </script>
+  </body>
+</html>

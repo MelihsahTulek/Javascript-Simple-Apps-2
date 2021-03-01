@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app_1</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+      html,
+      body {
+        font-family: monospace;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-size: 22px;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .quoate {
+        display: table;
+        margin-top: 5vh;
+        padding: 5px 15px;
+        border-left: 3px solid crimson;
+        max-width: 90vw;
+      }
+
+      p {
+        margin: unset;
+        padding: 5px;
+        font-style: italic;
+      }
+      span {
+        margin: unset;
+        padding: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="quoate"></div>
+    </section>
+    <script>
+      const quotes = [
+        {
+          id: 1,
+          text: "Ending a sentence with a preposition is something up with which we will not put.",
+          author: "Winston Churchill",
+        },
+        {
+          id: 2,
+          text: "We are born male or female, but not masculine or feminine.",
+          author: "Sandra Bartky",
+        },
+        {
+          id: 3,
+          text: "Only those ideas that are least truly ours can be adequately expressed in words.",
+          author: "Henri Louis Bergson",
+        },
+        {
+          id: 4,
+          text: "We must constantly build dikes of courage to hold back the flood of fear.",
+          author: "Martin Luther King",
+        },
+        {
+          id: 5,
+          text: "Every child is an artist. The problem is to remain an artist once he grows up.",
+          author: "Pablo Ruiz y Picasso",
+        },
+      ];
+
+      const quoateContainer = document.querySelectorAll(".quoate")[0];
+      var index = null;
+
+      const randomNumber = () => {
+        while (true) {
+          index = parseInt(Math.random() * 10);
+          if (index <= quotes.length - 1) {
+            break;
+          }
+        }
+      };
+
+      randomNumber();
+
+      quoateContainer.innerHTML = null;
+      quoateContainer.innerHTML = `
+        <p>${quotes[index].text}</p>
+        <span>${quotes[index].author}</span>
+      `;
+
+      //
+      //
+    </script>
+  </body>
+</html>
