@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simple app with poke api</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <main>
+      <section class="center">
+        <div class="centerTitle">
+          <h1>
+            Poke API & VanillaJS <small><i>Dev. By</i> <a href="https://www.melihsahtulek.com" target="_blank">MT</a></small>
+          </h1>
+        </div>
+        <section class="searchSection">
+          <input type="text" placeholder="Search" />
+        </section>
+        <section class="pokeContainer"></section>
+      </section>
+      <div class="loader">
+        <box-icon name="loader" animation="spin" color="#f2ebeb" style="height: 200px; width: 200px"></box-icon>
+      </div>
+
+      <section class="modal modalHide">
+        <section class="center">
+          <div class="modalHeader">
+            <div class="header">
+              <h1 class="modalHeaderTitle">Title</h1>
+              <span>
+                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+          <div class="modalContent">
+            <div class="content">
+              <div class="contentLeft"></div>
+              <div class="contentRight">
+                <ul class="pokeModalUl"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
