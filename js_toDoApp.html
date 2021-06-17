@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>JavaScript Yapılacaklar Listesi</title>
+    <style>
+      span{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h3 class="display-4 text-center pt-3 pb-3">ToDo App.</h3>
+      <div class="card">
+        <div class="card-header">
+          New Task
+        </div>
+        <div class="card-body">
+          <input type="text" name="newTask" id="" class="form-control">
+          <button class="btn btn-success mt-2 btn-sm" name="addBtn"> Add New Task </button>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          Task List
+          <button class="btn btn-outline-danger btn-sm" name="deleteAllBtn">Delete All</button>
+        </div>
+        <div class="card-body p-0">
+          <ul class="list-group">
+            
+            
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        
+        let input = document.getElementsByName('newTask')[0];
+        let addBtn = document.getElementsByName('addBtn')[0];
+        let list = document.getElementsByClassName('list-group')[0]; 
+        deleteAll();
+        getAllData();
+        function addNewTask() { 
+          let val = input.value;
+          localStorage.setItem(val,val); // Ekleme Yapıldı.
+          input.value = null;
+          getAllData();
+        }
+        addBtn.setAttribute('disabled','False');
+        input.addEventListener('keyup', function (e) {
+          if (e.target.value.length == 0) {
+            addBtn.setAttribute('disabled','False');
+          } else {
+            addBtn.removeAttribute('disabled');
+          }
+          if (e.keyCode == 13 && e.target.value.length != 0) {
+            addNewTask();
+            addBtn.setAttribute('disabled','False');
+            deleteAll();
+          }
+        });
+        addBtn.addEventListener('click', function () { 
+          addNewTask();
+          addBtn.setAttribute('disabled','False');
+          deleteAll();
+        });
+        function getAllData() {
+          list.innerHTML = ''
+          for (let i = 0; i < localStorage.length; i++) {
+            list.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center" data="${localStorage.key(i)} "> ${localStorage.key(i)} <span class="badge badge-danger">X</span></li>`;   
+          }
+        
+          deleteAll();
+          singleDelete();
+        }
+        function deleteAll() {
+          if (list.childElementCount == 0) {
+            document.getElementsByName('deleteAllBtn')[0].setAttribute('disabled','False');
+          }else{
+            document.getElementsByName('deleteAllBtn')[0].removeAttribute('disabled');
+          }
+        }
+
+        document.getElementsByName('deleteAllBtn')[0].addEventListener('click', function () { 
+            localStorage.clear();
+            getAllData();
+            document.getElementsByName('deleteAllBtn')[0].setAttribute('disabled','False');
+        });
+        
+        
+        function singleDelete() {
+          list.childNodes.forEach(function (data) {
+            data.children[0].addEventListener('click', function (e) { 
+              localStorage.removeItem(localStorage.key(e.target.parentElement.getAttribute('data')))
+              e.target.parentElement.remove();
+            })
+          })
+        } 
+        
+    </script>
+  </body>
+</html>
