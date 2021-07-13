@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@200;300&display=swap");
+
+* {
+  margin: unset;
+  padding: unset;
+  line-height: 1;
+  box-sizing: border-box;
+  font-family: "Encode Sans Condensed", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+:root {
+  --purple: #5856d6;
+  --white: #fefefe;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: url("images/faq__svg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .content__container {
+  width: 70vmax;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 3px solid var(--purple);
+  background-color: var(--white);
+}
+
+main .content__container .area {
+  display: flex;
+}
+
+main .content__container .faq__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main .content__container .title {
+  width: 100%;
+  background-color: var(--white);
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  border-bottom: 3px solid var(--purple);
+}
+
+main .content__container .title h1 {
+  color: var(--purple);
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+main .content__container .faq_accordion {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+main .content__container .faq_accordion ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main .content__container .faq_accordion ul li .faq__title {
+  background-color: var(--purple);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+main .content__container .faq_accordion ul li .faq__title .plus__minus span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: var(--white);
+}
+
+main .content__container .faq_accordion ul li .faq__title .plus__minus span:last-child {
+  transform: rotate(90deg);
+  margin-top: -3px;
+  display: none;
+}
+
+main .content__container .faq_accordion ul li .faq__title * {
+  color: var(--white);
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+main .content__container .faq_accordion ul li .faq__content {
+  padding: 1rem;
+  border: 1px solid var(--purple);
+  border-top: unset !important;
+  display: none;
+}
+
+main .content__container .faq_accordion ul li .active,
+.faq__title .active span:last-child {
+  display: block !important;
+}
